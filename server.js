@@ -13,14 +13,27 @@ const fs = require("fs");
 function requestListener(req, res) {
   console.log(req.url);
   res.writeHead(200, { "content-type": "text/html" });
-  fs.readFile("./index.html", (err, data) => {
+  let filePath;
+  switch (req.url) {
+    case "/":
+      filePath = "./index.html";
+      break;
+    case "/profile":
+      filePath = "./profile.html";
+      break;
+    default:
+      filePath = "./404.html";
+      break;
+  }
+  fs.readFile(filePath, (err, data) => {
     if (err) {
-      console.log('error :',err);
-      return res.end('<h1>Error  </h1>')
+      console.log("error :", err);
+      return res.end("<h1>Error</h1>");
     }
-return res.end(data)
+    return res.end(data);
   });
 }
+
 //5. create server
 const server = http.createServer(requestListener);
 
