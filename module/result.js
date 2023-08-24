@@ -1,8 +1,7 @@
 //call the function , get the result and display the result
 
 //how to import
-const arithematicModule = require("./arithematic");
-
+import { divide } from "./arithematic.js";
 //call sum function
-const result = arithematicModule.divide(10, 2);
-console.log("result :", result);
+
+console.log("result :", divide(10, 2));
