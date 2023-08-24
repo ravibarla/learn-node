@@ -2,18 +2,13 @@
 
 //1. import http/mode library
 const http = require("http");
-
-//2. create server
+//2. import file system
+const fs = require("fs");
+//3. create server
 const server = http.createServer((req, res) => {
+  const data = fs.readFileSync("index.html").toString();
+  res.end(data);
   //here comes the request
-  console.log(req.url);
-  if (req.url == "/product") {
-    return res.end("<h1>this is product </h1>");
-  } else if (req.url == "/user") {
-    return res.end("<h1>this is user </h1>");
-  }
-
-  return res.end("welcome to node");
 });
 
 //3. specify a port to listen client request
