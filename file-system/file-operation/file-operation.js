@@ -1,3 +1,5 @@
+//blocking code
+
 import fs from "fs";
 // console.log("fs :", fs);
 // const fs = require("fs");
