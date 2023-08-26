@@ -9,8 +9,21 @@ app.set("view engine", "ejs");
 //setting view path
 app.set("views", path.join(__dirname, "views"));
 
-//middleware
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
+
+//middleware 1
+app.use(function (req, res, next) {
+  // console.log("middleware 1 called");
+  req.myName = "ravi";
+  next();
+});
+
+//middleware 2
+app.use(function (req, res, next) {
+  // console.log("middleware 2 called");
+  console.log("getting from middleware 2 :", req.myName);
+  next();
+});
 
 var contactList = [
   {
@@ -27,6 +40,8 @@ var contactList = [
   },
 ];
 app.get("/", (req, res) => {
+  //get values from middleware
+  console.log("getting from get router controller :", req.myName);
   //render ejs file
   return res.render("home", {
     title: "my contact list",
