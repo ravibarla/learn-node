@@ -9,6 +9,9 @@ app.set("view engine", "ejs");
 //setting view path
 app.set("views", path.join(__dirname, "views"));
 
+//middleware
+app.use(express.urlencoded());
+
 var contactList = [
   {
     name: "arpan",
@@ -37,7 +40,16 @@ app.get("/practice", async (req, res) => {
 });
 
 app.post("/create-contact", function (req, res) {
-  return res.redirect("/practice");
+  // return res.redirect("/practice");
+  // console.log(req.body);
+  // console.log(req.body.name);
+  // console.log(req.body.phone);
+  // contactList.push({
+  //   name: req.body.name,
+  //   phone: req.body.phone,
+  // });
+  contactList.push(req.body);
+  return res.redirect("back");
 });
 
 app.listen(port, (err) => {
