@@ -10,6 +10,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.get("/", (req, res) => {
+  //render ejs file
   return res.render("home");
 });
 
