@@ -8,3 +8,43 @@ body {
     margin-top: 25px;
     color: grey;
 }
+
+.contact {
+    display: flex;
+    justify-content: space-evenly;
+    background: blue;
+    color: white;
+    padding: 3px 10px;
+    border: 1px solid wheat;
+    box-shadow: 1px 1px 1px 1px lightgray;
+}
+
+#contact-list-container {
+    padding: 0%;
+    list-style: none;
+}
+
+.contact.detail {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%
+}
+
+.contact .delete-buton {
+    width: 10%;
+    padding: 3px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.contact .delete-buton a {
+    color: white;
+    background-color: red;
+}
+
+.detail:hover {
+    background-color: grey;
+    color: black;
+}
