@@ -36,6 +36,10 @@ app.get("/practice", async (req, res) => {
   return res.render("practice", { title: "lets practice with ejs" });
 });
 
+app.post("/create-contact", function (req, res) {
+  return res.redirect("/practice");
+});
+
 app.listen(port, (err) => {
   if (err) {
     console.log("error :", err);
