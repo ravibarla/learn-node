@@ -14,6 +14,11 @@ app.get("/", (req, res) => {
   return res.render("home", { title: "my contact list" });
 });
 
+app.get("/practice", async (req, res) => {
+  //render ejs file
+  return res.render("practice", { title: "lets practice with ejs" });
+});
+
 app.listen(port, (err) => {
   if (err) {
     console.log("error :", err);
