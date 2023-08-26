@@ -11,33 +11,39 @@
 </head>
 
 <body>
+    <div id="container">
+        <h1 id="page-heading">
+            <i class="fa-solid fa-address-book"></i>
+            My Contact List
+        </h1>
+        <div id="contacts-list-container">
+            <ul>
+                <% for(let i of contact_list){%>
+                    <li class="contact">
+                        <p class="detail">
+                            <%=i.name%>
+                        </p>
+                        <p>
+                            <%=i.phone%>
+                        </p>
+                        <div class="delete-buton">
+                            <a href="/delete-contact/?phone=<%= i.phone %>">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </div>
+                    </li>
+                    <% }%>
+            </ul>
+        </div>
+        <form action="/create-contact" method="POST">
+            <input type="text" name="name" placeholder="enter name :" required>
+            <input type="number" name="phone" placeholder="enter phon :" required>
+            <button type="submit">add contact</button>
+        </form>
+        <Script src="/js/home.js" type="text/javascript">
 
-    <h1 id="page-heading">
-        <i class="fa-solid fa-address-book"></i>
-        My Contact List
-    </h1>
-    <div>
-        <ul>
-            <% for(let i of contact_list){%>
-                <li>
-                    <p>
-                        <%=i.name%>
-                    </p>
-                    <p>
-                        <%=i.phone%>
-                    </p>
-                </li>
-                <% }%>
-        </ul>
+        </Script>
     </div>
-    <form action="/create-contact" method="POST">
-        <input type="text" name="name" placeholder="enter name :" required>
-        <input type="number" name="phone" placeholder="enter phon :" required>
-        <button type="submit">add contact</button>
-    </form>
-    <Script src="/js/home.js" type="text/javascript">
-
-    </Script>
 </body>
 
 </html>

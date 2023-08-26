@@ -43,7 +43,7 @@ var contactList = [
 ];
 app.get("/", (req, res) => {
   //get values from middleware
-  console.log("getting from get router controller :", req.myName);
+  // console.log("getting from get router controller :", req.myName);
   //render ejs file
   return res.render("home", {
     title: "my contact list",
@@ -69,6 +69,19 @@ app.post("/create-contact", function (req, res) {
   return res.redirect("back");
 });
 
+//for deleting a contact
+app.get("/delete-contact/", function (req, res) {
+  // console.log("delete");
+  // res.redirect("/");
+  //get query from url
+  console.log("req.params :", req.query);
+  let phone = req.query.phone;
+  let contactIndex = contactList.findIndex((contact) => contact.phone == phone);
+  if (contactIndex != -1) {
+    contactList.splice(contactIndex, 1);
+  }
+  return res.redirect("back");
+});
 app.listen(port, (err) => {
   if (err) {
     console.log("error :", err);
