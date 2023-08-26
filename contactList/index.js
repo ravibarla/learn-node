@@ -70,12 +70,12 @@ app.post("/create-contact", function (req, res) {
 });
 
 //for deleting a contact
-app.get("/delete-contact/", function (req, res) {
+app.get("/delete-contact/:phone", function (req, res) {
   // console.log("delete");
   // res.redirect("/");
   //get query from url
-  console.log("req.params :", req.query);
-  let phone = req.query.phone;
+  console.log("req.params :", req.params);
+  let phone = req.params.phone;
   let contactIndex = contactList.findIndex((contact) => contact.phone == phone);
   if (contactIndex != -1) {
     contactList.splice(contactIndex, 1);
