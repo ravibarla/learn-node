@@ -11,19 +11,21 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static("assets"));
+
 //middleware 1
-app.use(function (req, res, next) {
-  // console.log("middleware 1 called");
-  req.myName = "ravi";
-  next();
-});
+// app.use(function (req, res, next) {
+//   // console.log("middleware 1 called");
+//   req.myName = "ravi";
+//   next();
+// });
 
 //middleware 2
-app.use(function (req, res, next) {
-  // console.log("middleware 2 called");
-  console.log("getting from middleware 2 :", req.myName);
-  next();
-});
+// app.use(function (req, res, next) {
+//   // console.log("middleware 2 called");
+//   console.log("getting from middleware 2 :", req.myName);
+//   next();
+// });
 
 var contactList = [
   {
